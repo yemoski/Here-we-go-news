@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Get 'Here we Go' Tweets</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/styles/styles.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+
+
+  <body>
+
+    <header>
+      <div class="nav container"> 
+      <a href="#" class="logo">Ve<span>nom</span></a>
+      <a href="" class="login">Login</a>
+    
+    </div>
+    </header>
+
+    <section class="home" id="home">
+      <div class="home-text container">
+      <h2 class="home-title">Fabrizio Romano's 'Here We Go' Tweets</h2>
+      <span class="home-subtitle">Your source of great content</span>
+      </div>
+    </section>
+
+    <div class="post-filter container">
+      <span class="filter-item active-filter" data-filter='all'> All</span>
+      <span class="filter-item" data-filter='design'>Design</span>
+      <span class="filter-item" data-filter='tech'>Tech </span>
+      <span class="filter-item" data-filter='mobile'>Mobile</span>
+    </div>
+
+    <section class="post container">
+      <!---
+      <div class="post-box mobile">
+        <img src="../static/images/img1.jpg" alt="" class="post-img">
+        <h2 class="category"> Mobile</h2>
+        <a href="post-page.html" class="post-title">Fabrizio says Cody Gakpo to Man Utd is Close</a>
+        <span class="post-date">1 Jan 2023</span>
+        <p class="post-description">There are chances for Cody Gakpo to leave PSV already in January. Original plan was to sell him in the summer but could change after excellent World Cup. ⭐️🇳🇱 #Gakpo Man United remain in contact with his agents.There are 3/4 clubs in the race.</p>
+        <div class="profile">
+          <img src="../static/images/img2.jpg" alt="" class="profile-img">
+          <span class="profile-name">David Gill</span>
+        </div>
+      </div>
+
+      <div class="post-box tech">
+        <img src="../static/images/img4.jpg" alt="" class="post-img">
+        <h2 class="category"> Tech</h2>
+        <a href="post-page.html" class="post-title">Fabrizio says Cody Gakpo to Man Utd is Close</a>
+        <span class="post-date">1 Jan 2023</span>
+        <p class="post-description">There are chances for Cody Gakpo to leave PSV already in January. Original plan was to sell him in the summer but could change after excellent World Cup. ⭐️🇳🇱 #Gakpo Man United remain in contact with his agents.There are 3/4 clubs in the race.</p>
+        <div class="profile">
+          <img src="../static/images/img2.jpg" alt="" class="profile-img">
+          <span class="profile-name">Masmiliano Allegri</span>
+        </div>
+      </div>
+
+      <div class="post-box design">
+        <img src="../static/images/img3.jpg" alt="" class="post-img">
+        <h2 class="category">Design</h2>
+        <a href="post-page.html" class="post-title">Fabrizio says Cody Gakpo to Man Utd is Close</a>
+        <span class="post-date">1 Jan 2023</span>
+        <p class="post-description">There are chances for Cody Gakpo to leave PSV already in January. Original plan was to sell him in the summer but could change after excellent World Cup. ⭐️🇳🇱 #Gakpo Man United remain in contact with his agents.There are 3/4 clubs in the race.</p>
+        <div class="profile">
+          <img src="../static/images/img2.jpg" alt="" class="profile-img">
+          <span class="profile-name">Kolo Toure</span>
+        </div>
+      </div>
+        --->
+      {%for index,row in tweet.iterrows() %}
+       <div class="post-box design">
+        {% if row['img'] == '[]' %}
+        <img src="../static/images/img2.jpg" alt="" class="post-img">
+        {% else %}
+        <img src="{{row['img'].strip("[]'")}}" alt="" class="post-img">
+        {% endif %}
+        <h2 class="category">Transfer News</h2>
+        <a href="{{row['url']}}" class="post-title" target="_blank">Fabrizio says;</a>
+        <span class="post-date">{{row['time']}}</span>
+        <p class="post-description">{{row['tweet']}}</p>
+        <div class="profile">
+          <img src="../static/images/img2.jpg" alt="" class="profile-img">
+          <span class="profile-name">Fabrizio Romano</span>
+        </div>
+      </div>
+
+      {% endfor %}
+
+
+    </section>
+
+    <div class="footer container">
+      <p>&#169; Saint Yemisi All Right Reserved</p>
+      <div class="social">
+        <a href="#"><i class="bx bxl-facebook"> </i></a>
+        <a href="#"><i class="bx bxl-twitter"> </i></a>
+        <a href="#"><i class="bx bxl-instagram"> </i></a>
+        <a href="#"><i class="bx bxl-linkedin"> </i></a>
+      </div>
+    </div>
+
+
+
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.6.1.js"
+  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
+  <script type=text/javascript src="{{ url_for('static', filename='/js/main.js') }}"></script> 
+  </body>
+</html>
